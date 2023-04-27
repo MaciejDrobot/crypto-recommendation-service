@@ -13,6 +13,7 @@ class DataLoaderImplTest {
     @Test
     public void shouldReadAllFiles() {
         // given
+        loader.loadData();
     
         // when
 
