@@ -12,9 +12,6 @@ class ParserCSVTest {
 
     private final ParserCSV parser = new ParserCSV();
 
-    ParserCSVTest() throws IOException {
-    }
-
     @Test
     public void shouldReadAllRecords() throws IOException {
         // given
@@ -24,6 +21,5 @@ class ParserCSVTest {
 
         // then
         assertEquals(100, allRecords.size());
-
     }
 }

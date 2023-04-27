@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,19 +13,20 @@ import java.util.Objects;
 public class DataLoaderImpl implements DataLoader {
 
     private List<File> cryptos;
-
-    @Autowired
-    private ParserCSV parserCSV;
+    private final ParserCSV parserCSV;
+    private List<Currency> allRecords;
 
     {
         createListOfAvailableCryptos();
+        parserCSV = new ParserCSV();
     }
 
     public DataLoaderImpl() {
     }
 
     @Override
-    public void loadData() {
+    public void loadData() throws IOException {
+        parseAllRecords();
 
     }
 
@@ -37,6 +40,13 @@ public class DataLoaderImpl implements DataLoader {
 
     public int numberOfAvailableCryptos() {
         return cryptos.size();
+    }
+
+    private void parseAllRecords() throws IOException {
+        for (File f : cryptos) {
+            allRecords.addAll(parserCSV.getAllRecords(f.getName()));
+        }
+        System.out.println(allRecords.size());
     }
 
     public void printFileNames() {
