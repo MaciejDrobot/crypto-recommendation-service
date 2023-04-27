@@ -18,6 +18,7 @@ public class DataLoaderImpl implements DataLoader {
     @Override
     public void loadData() {
 
+
     }
 
     private void createListOfAvailableCryptos() {
