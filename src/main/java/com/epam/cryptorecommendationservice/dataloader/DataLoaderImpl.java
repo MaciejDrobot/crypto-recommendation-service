@@ -1,5 +1,6 @@
 package com.epam.cryptorecommendationservice.dataloader;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -11,13 +12,18 @@ public class DataLoaderImpl implements DataLoader {
 
     private List<File> cryptos;
 
+    @Autowired
+    private ParserCSV parserCSV;
+
     {
         createListOfAvailableCryptos();
     }
 
+    public DataLoaderImpl() {
+    }
+
     @Override
     public void loadData() {
-
 
     }
 
@@ -25,12 +31,17 @@ public class DataLoaderImpl implements DataLoader {
         String PREFIX = System.getProperty("user.dir");
         String RESOURCES = "/src/main/resources/prices/";
         String PATH = PREFIX + RESOURCES;
-        System.out.println(PATH);
         File prices = new File(PATH);
         cryptos = List.of(Objects.requireNonNull(prices.listFiles()));
     }
 
     public int numberOfAvailableCryptos() {
         return cryptos.size();
+    }
+
+    public void printFileNames() {
+        for (File f : cryptos) {
+            System.out.println(f.getName());
+        }
     }
 }

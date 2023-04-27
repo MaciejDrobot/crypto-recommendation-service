@@ -8,11 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class DataLoaderImplTest {
     
-    private final DataLoader loader = new DataLoaderImpl();
+    private final DataLoaderImpl loader = new DataLoaderImpl();
     
     @Test
     public void shouldReadAllFiles() {
         // given
+        loader.loadData();
+        loader.printFileNames();
     
         // when
 
