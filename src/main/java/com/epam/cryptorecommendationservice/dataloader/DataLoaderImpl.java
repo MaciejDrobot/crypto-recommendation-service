@@ -22,8 +22,6 @@ public class DataLoaderImpl implements DataLoader {
 
     {
         createListOfAvailableCryptos();
-//        parserCSV = new ParserCSV();
-//        repository = new BatchCurrencyRepository();
     }
 
     @Override

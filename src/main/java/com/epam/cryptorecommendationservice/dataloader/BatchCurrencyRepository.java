@@ -14,7 +14,6 @@ public class BatchCurrencyRepository {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-
     @Transactional
     public void saveAll(List<Currency> currencies) {
         jdbcTemplate.batchUpdate("INSERT INTO currency (TIMESTAMP, SYMBOL, PRICE) " +
@@ -26,6 +25,13 @@ public class BatchCurrencyRepository {
                     ps.setString(2, currency.getSymbol());
                     ps.setFloat(3, currency.getPrice());
                 });
+    }
+
+    @Transactional
+    public List<Currency> getAllRecords() {
+        String sql = "SELECT * FROM CURRENCY";
+        return jdbcTemplate.query(
+                sql, new CurrencyRowMapper());
     }
 
 }
