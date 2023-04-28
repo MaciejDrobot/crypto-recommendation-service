@@ -1,18 +1,16 @@
 package com.epam.cryptorecommendationservice.model;
 
-import java.time.LocalDateTime;
-
 public class CurrencyStatistic {
 
     double min;
     double max;
-    LocalDateTime oldest;
-    LocalDateTime newest;
+    double oldest;
+    double newest;
 
     public CurrencyStatistic() {
     }
 
-    public CurrencyStatistic(double min, double max, LocalDateTime oldest, LocalDateTime newest) {
+    public CurrencyStatistic(double min, double max, double oldest, double newest) {
         this.min = min;
         this.max = max;
         this.oldest = oldest;
@@ -35,19 +33,19 @@ public class CurrencyStatistic {
         this.max = max;
     }
 
-    public LocalDateTime getOldest() {
+    public double getOldest() {
         return oldest;
     }
 
-    public void setOldest(LocalDateTime oldest) {
+    public void setOldest(double oldest) {
         this.oldest = oldest;
     }
 
-    public LocalDateTime getNewest() {
+    public double getNewest() {
         return newest;
     }
 
-    public void setNewest(LocalDateTime newest) {
+    public void setNewest(double newest) {
         this.newest = newest;
     }
 }

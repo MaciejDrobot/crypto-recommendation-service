@@ -13,8 +13,8 @@ public class CurrencyStatisticMapper implements RowMapper<CurrencyStatistic> {
         CurrencyStatistic statistic = new CurrencyStatistic();
         statistic.setMin(rs.getDouble("MIN"));
         statistic.setMax(rs.getDouble("MAX"));
-        statistic.setOldest(rs.getTimestamp("OLDEST").toLocalDateTime());
-        statistic.setNewest(rs.getTimestamp("NEWEST").toLocalDateTime());
+        statistic.setOldest(rs.getDouble("OLDEST"));
+        statistic.setNewest(rs.getDouble("NEWEST"));
         return statistic;
     }
 }
