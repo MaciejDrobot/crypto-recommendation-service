@@ -14,6 +14,7 @@ public class CurrencyServiceImpl implements CurrencyService {
     @Override
     public CurrencyStatistic getLastMonthStatistics(String currency) {
         String query = "SELECT " +
+                "c.symbol AS symbol, " +
                 "MIN(c.price) AS min, MAX(c.price) AS max, " +
                 "o.price AS oldest, n.price AS newest " +
                 "FROM currency AS c, " +

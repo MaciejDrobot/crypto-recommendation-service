@@ -2,6 +2,7 @@ package com.epam.cryptorecommendationservice.model;
 
 public class CurrencyStatistic {
 
+    String symbol;
     double min;
     double max;
     double oldest;
@@ -10,11 +11,20 @@ public class CurrencyStatistic {
     public CurrencyStatistic() {
     }
 
-    public CurrencyStatistic(double min, double max, double oldest, double newest) {
+    public CurrencyStatistic(String symbol, double min, double max, double oldest, double newest) {
+        this.symbol = symbol;
         this.min = min;
         this.max = max;
         this.oldest = oldest;
         this.newest = newest;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     public double getMin() {

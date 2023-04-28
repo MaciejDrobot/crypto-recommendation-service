@@ -15,6 +15,7 @@ class CurrencyServiceImplTest {
     @Test
     public void shouldReturnCorrectStatistics() {
         var actual = service.getLastMonthStatistics("BTC");
+        assertEquals("BTC", actual.getSymbol());
         assertEquals(47722.66, actual.getMax());
         assertEquals(33276.59, actual.getMin());
         assertEquals(46813.21, actual.getOldest());
