@@ -1,5 +1,6 @@
 package com.epam.cryptorecommendationservice.dataloader;
 
+import com.epam.cryptorecommendationservice.model.Currency;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;

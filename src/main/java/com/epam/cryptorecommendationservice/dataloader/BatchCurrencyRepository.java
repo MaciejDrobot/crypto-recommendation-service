@@ -1,5 +1,6 @@
 package com.epam.cryptorecommendationservice.dataloader;
 
+import com.epam.cryptorecommendationservice.model.Currency;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

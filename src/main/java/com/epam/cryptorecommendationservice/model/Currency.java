@@ -1,4 +1,4 @@
-package com.epam.cryptorecommendationservice.dataloader;
+package com.epam.cryptorecommendationservice.model;
 
 import jakarta.persistence.*;
 

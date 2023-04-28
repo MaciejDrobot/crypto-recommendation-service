@@ -1,5 +1,6 @@
 package com.epam.cryptorecommendationservice.dataloader;
 
+import com.epam.cryptorecommendationservice.model.Currency;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

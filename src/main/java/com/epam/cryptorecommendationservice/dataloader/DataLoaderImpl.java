@@ -1,5 +1,7 @@
 package com.epam.cryptorecommendationservice.dataloader;
 
+import com.epam.cryptorecommendationservice.model.Currency;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,7 @@ public class DataLoaderImpl implements DataLoader {
         createListOfAvailableCryptos();
     }
 
+    @PostConstruct
     @Override
     public void loadData() throws IOException {
         repository.saveAll(parseAllRecords());
