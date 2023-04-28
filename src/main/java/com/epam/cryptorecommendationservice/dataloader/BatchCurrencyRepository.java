@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Repository
@@ -22,7 +24,7 @@ public class BatchCurrencyRepository {
                 currencies,
                 50,
                 (PreparedStatement ps, Currency currency) -> {
-                    ps.setLong(1, currency.getTimestamp());
+                    ps.setTimestamp(1, Timestamp.valueOf(currency.getTimestamp()));
                     ps.setString(2, currency.getSymbol());
                     ps.setFloat(3, currency.getPrice());
                 });

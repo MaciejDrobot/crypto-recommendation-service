@@ -6,6 +6,9 @@ import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +32,7 @@ public class ParserCSV {
         List<Currency> list = new ArrayList<>();
         for (CSVRecord record : records) {
             list.add(new Currency(
-                    Long.parseLong(record.get("timestamp")),
+                    LocalDateTime.ofInstant(Instant.ofEpochMilli(Long.parseLong(record.get("timestamp"))), ZoneId.systemDefault()),
                     record.get("symbol"),
                     Float.parseFloat(record.get("price"))
             ));

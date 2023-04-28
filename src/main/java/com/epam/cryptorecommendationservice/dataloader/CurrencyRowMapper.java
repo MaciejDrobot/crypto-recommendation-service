@@ -11,7 +11,7 @@ public class CurrencyRowMapper implements RowMapper<Currency> {
     @Override
     public Currency mapRow(ResultSet rs, int rowNum) throws SQLException {
         Currency currency = new Currency();
-        currency.setTimestamp(rs.getLong("TIMESTAMP"));
+        currency.setTimestamp(rs.getTimestamp("TIMESTAMP").toLocalDateTime());
         currency.setSymbol(rs.getString("SYMBOL"));
         currency.setPrice(rs.getFloat("PRICE"));
         return currency;

@@ -2,6 +2,8 @@ package com.epam.cryptorecommendationservice.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 public class Currency {
 
@@ -10,7 +12,7 @@ public class Currency {
     @Column(name = "id", nullable = false)
     int id;
     @Column(name = "timestamp", nullable = false)
-    Long timestamp;
+    LocalDateTime timestamp;
     @Column(name = "symbol", nullable = false)
     String symbol;
     @Column(name = "price", nullable = false)
@@ -19,17 +21,17 @@ public class Currency {
     public Currency() {
     }
 
-    public Currency(Long timestamp, String symbol, float price) {
+    public Currency(LocalDateTime timestamp, String symbol, float price) {
         this.timestamp = timestamp;
         this.symbol = symbol;
         this.price = price;
     }
 
-    public Long getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Long timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
