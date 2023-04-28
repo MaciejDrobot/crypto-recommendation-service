@@ -13,21 +13,22 @@ import java.util.Objects;
 public class DataLoaderImpl implements DataLoader {
 
     private List<File> cryptos;
-    private final ParserCSV parserCSV;
-    private List<Currency> allRecords;
+
+    @Autowired
+    ParserCSV parserCSV;
+
+    @Autowired
+    BatchCurrencyRepository repository;
 
     {
         createListOfAvailableCryptos();
-        parserCSV = new ParserCSV();
-    }
-
-    public DataLoaderImpl() {
+//        parserCSV = new ParserCSV();
+//        repository = new BatchCurrencyRepository();
     }
 
     @Override
     public void loadData() throws IOException {
-        parseAllRecords();
-
+        repository.saveAll(parseAllRecords());
     }
 
     private void createListOfAvailableCryptos() {
@@ -42,16 +43,11 @@ public class DataLoaderImpl implements DataLoader {
         return cryptos.size();
     }
 
-    private void parseAllRecords() throws IOException {
+    private List<Currency> parseAllRecords() throws IOException {
+        List<Currency> allRecords = new ArrayList<>();
         for (File f : cryptos) {
-            allRecords.addAll(parserCSV.getAllRecords(f.getName()));
+            allRecords.addAll(parserCSV.getAllRecordsFromFile(f.getName()));
         }
-        System.out.println(allRecords.size());
-    }
-
-    public void printFileNames() {
-        for (File f : cryptos) {
-            System.out.println(f.getName());
-        }
+        return allRecords;
     }
 }

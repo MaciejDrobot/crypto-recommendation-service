@@ -22,7 +22,7 @@ public class ParserCSV {
                 .build();
     }
 
-    public List<Currency> getAllRecords(String fileName) throws IOException {
+    public List<Currency> getAllRecordsFromFile(String fileName) throws IOException {
         Reader in = new FileReader(PREFIX + fileName);
         Iterable<CSVRecord> records = csvFormat.parse(in);
         List<Currency> list = new ArrayList<>();

@@ -13,13 +13,13 @@ class DataLoaderImplTest {
     private final DataLoaderImpl loader = new DataLoaderImpl();
     
     @Test
-    public void shouldReadAllFiles() throws IOException {
-        // given
-
-        // when
-
-        // then
+    public void shouldReadAllFiles() {
         assertEquals(5, loader.numberOfAvailableCryptos());
+    }
+
+    @Test
+    public void shouldSaveAllRecordsInDatabase() throws IOException {
+        loader.loadData();
     }
 
 }

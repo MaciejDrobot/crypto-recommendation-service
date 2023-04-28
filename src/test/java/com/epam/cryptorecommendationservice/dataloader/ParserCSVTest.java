@@ -13,13 +13,8 @@ class ParserCSVTest {
     private final ParserCSV parser = new ParserCSV();
 
     @Test
-    public void shouldReadAllRecords() throws IOException {
-        // given
-
-        // when
-        var allRecords = parser.getAllRecords("BTC_values.csv");
-
-        // then
+    public void shouldReadAllRecordsFromFile() throws IOException {
+        var allRecords = parser.getAllRecordsFromFile("BTC_values.csv");
         assertEquals(100, allRecords.size());
     }
 }
