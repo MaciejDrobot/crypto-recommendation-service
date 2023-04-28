@@ -1,8 +1,10 @@
 package com.epam.cryptorecommendationservice.service;
 
+import com.epam.cryptorecommendationservice.model.CurrencyStatistic;
+
 public interface CurrencyService {
 
-    void getLastMonthStatistics();
+    CurrencyStatistic getLastMonthStatistics(String currency);
 
     void getComparisonOfNormalizedRange();
 

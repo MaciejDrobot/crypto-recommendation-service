@@ -26,7 +26,7 @@ public class BatchCurrencyRepository {
                 (PreparedStatement ps, Currency currency) -> {
                     ps.setTimestamp(1, Timestamp.valueOf(currency.getTimestamp()));
                     ps.setString(2, currency.getSymbol());
-                    ps.setFloat(3, currency.getPrice());
+                    ps.setDouble(3, currency.getPrice());
                 });
     }
 

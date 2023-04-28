@@ -16,7 +16,7 @@ public class Currency {
     @Column(name = "symbol", nullable = false)
     String symbol;
     @Column(name = "price", nullable = false)
-    float price;
+    double price;
 
     public Currency() {
     }
@@ -43,11 +43,11 @@ public class Currency {
         this.symbol = symbol;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }
