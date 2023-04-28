@@ -11,10 +11,10 @@ public class CurrencyStatisticMapper implements RowMapper<CurrencyStatistic> {
     @Override
     public CurrencyStatistic mapRow(ResultSet rs, int rowNum) throws SQLException {
         CurrencyStatistic statistic = new CurrencyStatistic();
-        statistic.setMin(rs.getDouble("MIN"));
-        statistic.setMax(rs.getDouble("MAX"));
-        statistic.setOldest(rs.getDouble("OLDEST"));
-        statistic.setNewest(rs.getDouble("NEWEST"));
+        statistic.setMin(Double.parseDouble(String.format("%.2f", rs.getDouble("MIN"))));
+        statistic.setMax(Double.parseDouble(String.format("%.2f", rs.getDouble("MAX"))));
+        statistic.setOldest(Double.parseDouble(String.format("%.2f", rs.getDouble("OLDEST"))));
+        statistic.setNewest(Double.parseDouble(String.format("%.2f", rs.getDouble("NEWEST"))));
         return statistic;
     }
 }
