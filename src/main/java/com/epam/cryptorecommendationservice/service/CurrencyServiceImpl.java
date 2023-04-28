@@ -1,9 +1,13 @@
 package com.epam.cryptorecommendationservice.service;
 
+import com.epam.cryptorecommendationservice.model.CurrencyNormalized;
 import com.epam.cryptorecommendationservice.model.CurrencyStatistic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
+
+import java.util.Currency;
+import java.util.List;
 
 @Service
 public class CurrencyServiceImpl implements CurrencyService {
@@ -26,8 +30,15 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public void getComparisonOfNormalizedRange() {
-
+    public List<CurrencyNormalized> getCurrenciesByNormalizedRange() {
+        String query = "SELECT symbol, price," +
+                "1 * (price-t1.min_price)/(t1.max_price-t1.min_price) AS normalized " +
+                "FROM currency, " +
+                "(SELECT min(price) as min_price, " +
+                "max(price) as max_price " +
+                "FROM currency) as t1 " +
+                "ORDER BY normalized DESC;";
+        return jdbcTemplate.query(query, new CurrencyNormalizedMapper());
     }
 
     @Override
