@@ -34,6 +34,13 @@ class CurrencyControllerTest {
     }
 
     @Test
+    public void shouldReturnBadRequest() throws Exception {
+        mockMvc.perform(get("/currency/monthly-stats/GBP"))
+                .andExpect(status().isBadRequest())
+                .andDo(print());
+    }
+
+    @Test
     public void shouldReturnCorrectData() throws Exception {
         MvcResult result =
             mockMvc.perform(get("/currency/monthly-stats/BTC"))

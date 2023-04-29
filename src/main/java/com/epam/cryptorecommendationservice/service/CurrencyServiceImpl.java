@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.Currency;
 import java.util.List;
 
 @Service
@@ -44,5 +43,10 @@ public class CurrencyServiceImpl implements CurrencyService {
     @Override
     public void getHighestNormalizedRangePerDay() {
 
+    }
+
+    public List<String> availableCurrencies() {
+        String query = "SELECT DISTINCT symbol FROM currency";
+        return jdbcTemplate.queryForList(query, String.class);
     }
 }

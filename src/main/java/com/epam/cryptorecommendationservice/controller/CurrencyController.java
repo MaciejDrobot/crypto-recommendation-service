@@ -14,11 +14,17 @@ import java.util.List;
 @RequestMapping("/currency")
 public class CurrencyController {
 
+    private String CURRENCY_NOT_SUPPORTED =
+            "Requested currency is currently not supported.";
+
     @Autowired
     private CurrencyServiceImpl service;
 
     @GetMapping("/monthly-stats/{symbol}")
     public ResponseEntity<CurrencyStatistic> getCurrencyStatistics(@PathVariable String symbol) {
+        var supportedCurrencies = service.availableCurrencies();
+        if (!supportedCurrencies.contains(symbol))
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         var response = service.getLastMonthStatistics(symbol);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
