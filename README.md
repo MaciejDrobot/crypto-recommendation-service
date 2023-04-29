@@ -7,4 +7,4 @@ This should allow for easy extension by another currencies.
 ## Endpoints documentation
 Available endpoints have been documented using Swagger, and it can be accessed at: **http://localhost:8080/swagger-ui/index.html**
 
-![](/crypto-recommendation-service/src/main/resources/static/swagger.png)
+![](src/main/resources/static/swagger.png)
