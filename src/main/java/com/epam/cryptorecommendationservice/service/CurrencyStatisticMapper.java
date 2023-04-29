@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class CurrencyStatisticMapper implements RowMapper<CurrencyStatistic> {
+class CurrencyStatisticMapper implements RowMapper<CurrencyStatistic> {
 
     @Override
     public CurrencyStatistic mapRow(ResultSet rs, int rowNum) throws SQLException {
